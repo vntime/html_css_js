@@ -7,8 +7,8 @@
         var windowName = new Array();
 
         function submitForm(link) {
-            if (windowName[link]) {
-                windowName[link].focus();
+            if (windowArr[link]) {
+                windowArr[link].focus();
             } else {
                 document.forms['myForm'].action = 'huy';
                 document.myForm.target = link;
