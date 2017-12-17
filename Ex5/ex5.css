@@ -1,0 +1,21 @@
+div #hLeft label{
+    display: block;
+}
+
+div #hLeft{
+    float: left;
+    border: black 1px solid;
+}
+
+div #hRight input{
+    display: block;
+}
+div #hRight{
+    float: right;
+    border: black 1px solid;
+}
+div .other{
+    clear: both;
+    border: red 51px solid;
+}
+
