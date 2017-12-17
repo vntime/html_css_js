@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var windowArr = new Array();
+        var windowName = new Array();
+
+
+        function openLink(link) {
+            if (windowArr[link]) {
+                windowArr[link].focus();
+            } else {
+                windowName.push(link);
+                windowArr[link] = window.open(
+                    link,
+                    link,
+                    "top=100px,left=100px,width=400px,height=300px,toolbar=0"
+                )
+            }
+        }
+
+        /**
+         *
+         */
+        function closeAll() {
+            windowName.forEach(function (value, index) {
+                delete windowName[index];
+                windowArr[value].close();
+                delete windowArr[value];
+            })
+        }
+    </script>
+    <style>
+        * {
+            margin: 5px;
+        }
+
+        ul li {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="javascript:openLink('link1')">Link1 </a></li>
+    <li><a href="javascript:openLink('link2')">Link2 </a></li>
+    <li><a href="javascript:openLink('link3')">Link3 </a></li>
+    <li><a href="javascript:openLink('link4')">Link4 </a></li>
+</ul>
+</body>
+<input type="button" value="Close All" onclick="closeAll()">
+</html>

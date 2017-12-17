@@ -1,0 +1,35 @@
+#layout {
+    border: 1px solid brown;
+    margin: 20px auto;
+    width: 80%;
+}
+
+#gNav {
+    clear: both;
+}
+
+#hLeft {
+    margin-left: 2%;
+    float: left;
+}
+
+#hRight {
+    margin-right: 2%;
+    float: right;
+}
+
+#hRight ul li {
+    display: inline;
+}
+
+#hRight ul {
+    text-align: right;
+}
+
+#gNav ul li {
+    display: inline;
+}
+
+#gNav {
+    text-align: center;
+}

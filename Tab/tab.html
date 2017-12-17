@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .nonActive {
+            display: none;
+        }
+
+        .langNav {
+            display: inline;
+        }
+    </style>
+    <script>
+        function check(tab) {
+            var tab = document.getElementById('tab_' + tab);
+            var name = tab.getElementsByClassName('name')[0].value;
+            var note = tab.getElementsByClassName('note')[0].value;
+            if ((name != '' && note != '') || (name == '' && note == '')) {
+                return true;
+            } else {
+                alert('Hay nhap Name va Note');
+                return false;
+            }
+        }
+
+        function tab(id) {
+            var preActiveTab = document.getElementById('activeTab').getAttribute('value');
+            if (!check(preActiveTab)) {
+                return false;
+            }
+            alert('PreActiveTab: ' + preActiveTab);
+            document.getElementById('activeTab').setAttribute('value', id);
+            var tab = new Array();
+            tab[1] = 'en';
+            tab[2] = 'ja';
+            tab[3] = 'kr';
+            document.getElementById('tab_' + id).className = "";
+            document.getElementById('btn_' + id).setAttribute('disabled', '');
+            for (var i = 1; i <= 3; i++) {
+                if (tab[i] !== id) {
+                    document.getElementById('tab_' + tab[i]).className = "nonActive";
+                    document.getElementById('btn_' + tab[i]).removeAttribute('disabled')
+                }
+            }
+        }
+
+        /**
+         *
+         */
+        function submit() {
+            var namesOb = new Array();
+            var notesOb = new Array();
+            var names = new Array();
+            var notes = new Array();
+            namesOb = document.getElementsByClassName('name');
+            notesOb = document.getElementsByClassName('note');
+
+            for(var i = 0; i <namesOb.length; i++){
+                names[i] = namesOb[i].value;
+            }
+
+            for(var i = 0; i <notesOb.length; i++){
+                notes[i] = notesOb[i].value;
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="langNav">
+    <input id="btn_en" type="button" value="en" onclick="tab('en')" disabled>
+    <input id="btn_ja" type="button" value="ja" onclick="tab('ja')">
+    <input id="btn_kr" type="button" value="kr" onclick="tab('kr')">
+</div>
+
+<div id="tab_en">
+    <h3>English</h3>
+    Name: <input class="name">
+    Note: <input class="note">
+</div>
+<div id="tab_ja" class="nonActive">
+    <h3>Japan</h3>
+    Name: <input class="name">
+    Note: <input class="note">
+</div>
+<div id="tab_kr" class="nonActive">
+    <h3>Korea</h3>
+    Name: <input class="name">
+    Note: <input class="note">
+</div>
+<input type="button" value="Submit" onclick="submit()">
+<input type="hidden" id="activeTab" value="en">
+
+</body>
+</html>

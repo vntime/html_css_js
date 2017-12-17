@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #layout {
+            margin: 20px auto;
+            border: black solid 1px;
+            width: 90%;
+            height: 200px;
+            overflow-x: scroll;
+        }
+    </style>
+    <script>
+    function add() {
+        document.getElementById("select").appendChild('<option value="">Hai</option>');
+    }
+    </script>
+</head>
+<body>
+<div id="layout" style="text-wrap: initial">
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</div>
+<div>
+    <select id="select">
+        <option value="1">Mot</option>
+        <option value="2">Hai</option>
+    </select>
+    <input type="button" value="+" onclick="add()">
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        function submitForm() {
+            document.forms['myForm'].action = 'server.html';
+            document.myForm.target = "myActionWin";
+            var top = screen.height / 4;
+            var left = screen.width / 4;
+            var width = screen.width / 2;
+            var height = screen.height / 2;
+            window.open("", "myActionWin", "top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",toolbar=0");
+            document.forms['myForm'].submit();
+        }
+    </script>
+</head>
+<body>
+<form name="myForm" method="post">
+    First name: <input type="text" name="fname"/><br/>
+    Last name:<input type="text" name="lname"/><br/>
+    <input type="button" name="btnSubmit" value="Submit" onclick="submitForm()"/>
+</form>
+</body>
+</html>
