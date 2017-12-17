@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript">
+        var windowArr = new Array();
+        var windowName = new Array();
+
+        function submitForm(link) {
+            if (windowName[link]) {
+                windowName[link].focus();
+            } else {
+                document.forms['myForm'].action = 'huy';
+                document.myForm.target = link;
+                var top = screen.height / 4;
+                var left = screen.width / 4;
+                var width = screen.width / 2;
+                var height = screen.height / 2;
+
+                windowArr[link] = window.open("", link, "top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",toolbar=0");
+                windowName.push(link);
+                document.forms['myForm'].submit();
+            }
+        }
+        
+        function closeAll() {
+            windowName.forEach(function (value, index) {
+                delete windowName[index];
+                windowArr[value].close();
+                delete  windowArr[value];
+            })
+        }
+    </script>
+    <style>
+        li{
+            display: inline;
+            margin: 4px ;
+        }
+    </style>
+</head>
+<body>
+<form name="myForm" method="post">
+    Name <input name="name" placeholder="Name">
+    Age <input type="number" placeholder="Age">
+    <ul>
+        <li><a href="javascript:submitForm('Link1')">Link1</a></li>
+        <li><a href="javascript:submitForm('Link2')">Link2</a></li>
+        <li><a href="javascript:submitForm('Link3')">Link3</a></li>
+        <li><a href="javascript:submitForm('Link4')">Link4</a></li>
+    </ul>
+</form>
+<input type="button" value="Close All" onclick="closeAll()">
+</body>
+</html>
