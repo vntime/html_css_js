@@ -8,13 +8,21 @@ function onerrorAction(ob) {
 	var cusParaph = document.createElement("p");
 	cusParaph.innerHTML = "Other paraph";
 	
-	ob.parentNode.replaceChild(cusParaph, ob);
+	var cloneImg = ob.cloneNode(false);
+	cloneImg.removeAttribute("src");
+	cloneImg.removeAttribute("onerror");
+	cloneImg.removeAttribute("alt");
+	cloneImg.innerHTML = "Clone img";
+	var txt = document.createTextNode("Hello World"); 
+	cloneImg.appendChild(txt);
+	
+	ob.setAttribute("src", "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=");
+	ob.parentNode.insertBefore(cusParaph, ob.nextSibling);
+	// ob.parentNode.replaceChild(cloneImg, ob);
 }
 </script>
 </head>
 <body>
 <img src="1.k" alt="Test Alt" onerror=onerrorAction(this)>
-<br>
-<img>11111111111</img>
 </body>
 </html>
