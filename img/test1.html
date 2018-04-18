@@ -1,0 +1,20 @@
+<html>
+<head>
+<script>
+function onerrorAction(ob) {
+	var cusImg = document.createElement("img");
+	cusImg.innerHTML = "Other Alt";
+
+	var cusParaph = document.createElement("p");
+	cusParaph.innerHTML = "Other paraph";
+	
+	ob.parentNode.replaceChild(cusParaph, ob);
+}
+</script>
+</head>
+<body>
+<img src="1.k" alt="Test Alt" onerror=onerrorAction(this)>
+<br>
+<img>11111111111</img>
+</body>
+</html>
